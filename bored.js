@@ -4,10 +4,11 @@ const submitButton = document.querySelector('#submit-button')
 const priceRange = document.querySelector('#price-range')
 const descriptionWrapper = document.querySelector('.activity-wrapper')
 
-let typesArr = ["education", "recreational", "social", "diy", "charity", "cooking", "relaxation", "music", "busywork"]
 
-function listSelectionOptions(arr, selectElement) {
-    arr.map(option => {
+
+function listSelectionOptions(selectElement) {
+    let typesArr = ["education", "recreational", "social", "diy", "charity", "cooking", "relaxation", "music", "busywork"]
+    typesArr.map(option => {
         const optionElement = document.createElement('option')
         optionElement.value = option
         optionElement.textContent = option[0].toUpperCase() + option.slice(1)
@@ -15,39 +16,10 @@ function listSelectionOptions(arr, selectElement) {
     }) 
 }
 
-let selectedOptionOutput = document.createElement('p')
-selectedOptionOutput.classList.add('type-option-output')
 
-const activityDescription = document.querySelector('.activity-description')
-
-
-
-const activityOutput = document.createElement('p')
-
-function getActivitiesByType() {
-
-        let selectedOption = typesInputElement.value
-        selectedOptionOutput.textContent = `Type selected: ${selectedOption[0].toUpperCase()+selectedOption.slice(1)}`
-        activityDescription.append(selectedOptionOutput)
-
-        fetch(`https://www.boredapi.com/api/activity?type=${selectedOption}`)
-            .then(res => res.json())
-            .then(data => {
-                const activity = data.activity
-                console.log(data)
-                activityOutput.textContent = `Activity: ${activity}`
-                activityDescription.append(activityOutput)
-            })
-}
-
-
-
-
-const priceRangeOutput = document.createElement('p')
-priceRangeOutput.classList.add('price-range-output')
-const rangeOutput = document.querySelector('.range-output')
 
 function addRangeInput(rangeInput, min, max, step) {
+    const rangeOutput = document.querySelector('.range-output')
     rangeInput.min = min
     rangeInput.max = max
     rangeInput.step = step
@@ -63,36 +35,53 @@ function addRangeInput(rangeInput, min, max, step) {
         
     })
 
-    fetch(`https://www.boredapi.com/api/activity?price=${rangeInput.value}`)
-        .then(res => res.json())
-        .then(data => {
-            console.log(data)
-        })
-    priceRangeOutput.textContent = `Selected price: ${rangeInput.value}`
-
-    
-    activityDescription.append(priceRangeOutput)
-    rangeInput.after(rangeOutput)
 }
-// addRangeInput(priceRange, 0, 1, 0.05)
+
+
+const activityType = document.createElement('p')
+activityType.classList.add('activity-type')
+
+const activityDescription = document.createElement('p')
+activityDescription.classList.add('activity-description')
+
+
+const activityPrice = document.createElement('p')
+activityPrice.classList.add('activity-price')
+
+
+
+
 
 
 function getActivityByParameters() {
-    fetch(`https://www.boredapi.com/api/activity?type=${selectedOutput}&maxprice=${rangeInput.value}`)
 
+    let selectedType = typesInputElement.value
+    let selectedPrice = priceRange.value/10.0
+
+    fetch(`https://www.boredapi.com/api/activity?type=${selectedType}&maxprice=${selectedPrice}`)
+    .then(res => res.json())
+    .then(data => {
+
+        let price = data.price*10
+
+        activityType.textContent = `Type: ${data.type}`
+        activityDescription.textContent = `Activity: ${data.activity}`
+        activityPrice.textContent = `Price (0-10): ${price}`
+        console.log(data)
+    })
 }
 
+descriptionWrapper.append(activityType, activityDescription, activityPrice)
 
 
 function boredAPI() {
-    listSelectionOptions(typesArr, typesInputElement)
-    // addRangeInput(priceRange, 0, 1, 0.05)
+    listSelectionOptions(typesInputElement)
+    addRangeInput(priceRange, 0, 10, 0.5)
 
     form.addEventListener('submit', (event) => {
         event.preventDefault()
 
-        getActivitiesByType()
-        addRangeInput(priceRange, 0, 1, 0.05)
+        getActivityByParameters()
 
     })
 
