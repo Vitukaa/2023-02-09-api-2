@@ -2,7 +2,7 @@ const form = document.querySelector('#bored-form')
 const typesInputElement = document.querySelector('#categories')
 const submitButton = document.querySelector('#submit-button')
 const priceRange = document.querySelector('#price-range')
-const descriptionWrapper = document.querySelector('.activity-wrapper')
+
 
 
 
@@ -38,6 +38,20 @@ function addRangeInput(rangeInput, min, max, step) {
 }
 
 
+function getParticipantsCount() {
+    const participantsCount = form.participant.value
+    return participantsCount
+}
+
+
+
+
+
+const activityWrapper = document.createElement('div')
+activityWrapper.classList.add('activity-wrapper')
+
+
+
 const activityType = document.createElement('p')
 activityType.classList.add('activity-type')
 
@@ -48,42 +62,68 @@ activityDescription.classList.add('activity-description')
 const activityPrice = document.createElement('p')
 activityPrice.classList.add('activity-price')
 
+const activityParticipants = document.createElement('p')
+activityParticipants.classList.add('activity-participants')
 
+const noActivityError = document.createElement('p')
+noActivityError.classList.add('no-activity-error')
 
+function removeAllChildren(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+}
 
-
-
-function getActivityByParameters() {
+async function getActivityByParameters() {
+    removeAllChildren(activityWrapper)
 
     let selectedType = typesInputElement.value
     let selectedPrice = priceRange.value/10.0
 
-    fetch(`https://www.boredapi.com/api/activity?type=${selectedType}&maxprice=${selectedPrice}`)
-    .then(res => res.json())
-    .then(data => {
+    const res = await fetch(`https://www.boredapi.com/api/activity?type=${selectedType}&participants=${getParticipantsCount()}&maxprice=${selectedPrice}`)
+    const data = await res.json()
 
+    form.after(activityWrapper)
+    
+    if (!data.hasOwnProperty('error')) {
+        
         let price = data.price*10
 
         activityType.textContent = `Type: ${data.type}`
+        console.log(data)
         activityDescription.textContent = `Activity: ${data.activity}`
         activityPrice.textContent = `Price (0-10): ${price}`
+        activityParticipants.textContent = `Participants: ${getParticipantsCount()}`
         console.log(data)
-    })
+
+        activityWrapper.append(activityType, activityDescription, activityPrice, activityParticipants)
+
+    } else {
+
+        noActivityError.textContent = `${data.error}`
+        activityWrapper.append(noActivityError)
+    }
+ 
 }
 
-descriptionWrapper.append(activityType, activityDescription, activityPrice)
 
 
 function boredAPI() {
     listSelectionOptions(typesInputElement)
     addRangeInput(priceRange, 0, 10, 0.5)
 
-    form.addEventListener('submit', (event) => {
+    form.addEventListener('submit', async (event) => {
         event.preventDefault()
-
-        getActivityByParameters()
-
+        getParticipantsCount()
+        await getActivityByParameters()
+        // form.reset()
     })
 
 }
 boredAPI()
+
+
+
+
+
+

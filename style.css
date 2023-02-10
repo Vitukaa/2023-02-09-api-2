@@ -8,9 +8,21 @@ body {
     background-color: rgb(172, 249, 255);
 }
 
+#categories {
+    padding: 5px;
+    border-radius: 15px;
+    border-width: 5px;
+    border-color:blueviolet;
+    background-color: rgb(116, 116, 241);
+    color: rgb(255, 251, 239);;
+}
+
+
 .submit-button {
     padding: 10px;
     border-radius: 50px 15px;
+    border-width: 5px;
+    border-color: blueviolet;
     background-color: rgb(116, 116, 241);
     color: rgb(255, 251, 239);
     font-size: 13px;
