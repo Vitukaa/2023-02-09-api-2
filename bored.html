@@ -11,7 +11,8 @@
     <form id="bored-form">
         <select name="categories" id="categories"></select>
         <input type="range" name="price-range" id="price-range">
-        <output class="range-output" for="price-range">0.5</output>
+        <output class="price-output" for="price-range">0.5</output>
+
         <fieldset id="participants-field">
             <legend for="participant"class="field-title">Select participants count</legend>
             <input type="radio" name="participant" id="participant-1" value="1">
@@ -27,7 +28,8 @@
             <input type="radio" name="participant" id="participant-8" value="8">
             <label for="participant-8">8</label>
         </fieldset>
-       
+        <input type="range" name="accessibility-range" id="accessibility-range">
+        <output class="accessibility-output" for="accessibility-range">0.5</output>
         <button class="submit-button" type="submit">Get suggestions</button>
     </form>
 
