@@ -8,30 +8,44 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form id="bored-form">
-        <select name="categories" id="categories"></select>
-        <input type="range" name="price-range" id="price-range">
-        <output class="price-output" for="price-range">0.5</output>
-
-        <fieldset id="participants-field">
-            <legend for="participant"class="field-title">Select participants count</legend>
-            <input type="radio" name="participant" id="participant-1" value="1">
-            <label for="participant-1">1</label>
-            <input type="radio" name="participant" id="participant-2" value="2">
-            <label for="participant-2">2</label>
-            <input type="radio" name="participant" id="participant-3" value="3">
-            <label for="participant-3">3</label>
-            <input type="radio" name="participant" id="participant-4" value="4">
-            <label for="participant-4">4</label>
-            <input type="radio" name="participant" id="participant-5" value="5">
-            <label for="participant-5">5</label>
-            <input type="radio" name="participant" id="participant-8" value="8">
-            <label for="participant-8">8</label>
-        </fieldset>
-        <input type="range" name="accessibility-range" id="accessibility-range">
-        <output class="accessibility-output" for="accessibility-range">0.5</output>
-        <button class="submit-button" type="submit">Get suggestions</button>
-    </form>
+    <div class="wrapper">
+        <form id="bored-form">
+            <div class="form-parameters">
+                <select name="categories" id="categories"></select>
+                <div class="range-wrapper">
+                    <input type="range" name="price-range" id="price-range">
+                    <output class="price-output" for="price-range">0.5</output>
+                    <label class="label" for="price-range">Price range 0 - 10</label>
+                </div>
+    
+                <fieldset id="participants-field">
+                    <legend for="participant"class="field-title">Select participants count</legend>
+                    <input type="radio" name="participant" id="participant-1" value="1">
+                    <label for="participant-1">1</label>
+                    <input type="radio" name="participant" id="participant-2" value="2">
+                    <label for="participant-2">2</label>
+                    <input type="radio" name="participant" id="participant-3" value="3">
+                    <label for="participant-3">3</label>
+                    <input type="radio" name="participant" id="participant-4" value="4">
+                    <label for="participant-4">4</label>
+                    <input type="radio" name="participant" id="participant-5" value="5">
+                    <label for="participant-5">5</label>
+                    <input type="radio" name="participant" id="participant-8" value="8">
+                    <label for="participant-8">8</label>
+                </fieldset>
+                <div class="range-wrapper">
+                    <input type="range" name="accessibility-range" id="accessibility-range">
+                    <output class="accessibility-output" for="accessibility-range">0.5</output>
+                    <label class="label" for="accessibility-range">Accessibility range 0 - 10</label>
+                </div>
+                
+    
+            </div>
+    
+            <button class="submit-button" type="submit">Get suggestions</button>
+        </form>
+    </div>
+   
 
 
 

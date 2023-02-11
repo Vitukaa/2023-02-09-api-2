@@ -41,7 +41,8 @@ function addRangeInput(rangeInput, min, max, step, output) {
 const activityWrapper = document.createElement('div')
 activityWrapper.classList.add('activity-wrapper')
 
-
+const activityInfoWrapper = document.createElement('div')
+activityInfoWrapper.classList.add('activity-info-wrapper')
 
 const activityType = document.createElement('p')
 activityType.classList.add('activity-type')
@@ -71,14 +72,14 @@ function removeAllChildren(parent) {
 }
 
 async function getActivityByParameters() {
-    removeAllChildren(activityWrapper)
+    removeAllChildren(activityInfoWrapper)
 
     let selectedParticipant = form.participant.value
     let selectedType = typesInputElement.value
     let selectedPrice = priceRange.value / 10.0
     let selectedAccessibility = accessibilityRange.value / 10.0
 
-    parametersArr = [
+    let parametersArr = [
         ['type', selectedType],
         ['participants', selectedParticipant],
         ['maxaccessibility', selectedAccessibility],
@@ -103,6 +104,7 @@ async function getActivityByParameters() {
     const data = await res.json()
 
     form.after(activityWrapper)
+    activityWrapper.append(activityInfoWrapper)
     
     if (!data.hasOwnProperty('error')) {
         
@@ -116,7 +118,7 @@ async function getActivityByParameters() {
         activityParticipants.textContent = `Participants: ${data.participants}`
         activityAccessibility.textContent = `Accessibility (0-10): ${accessibility}`
 
-        activityWrapper.append(activityType, activityDescription, activityPrice, activityParticipants, activityAccessibility)
+        activityInfoWrapper.append(activityType, activityDescription, activityPrice, activityParticipants, activityAccessibility)
 
     } else {
         noActivityError.textContent = `${data.error}`
@@ -125,7 +127,36 @@ async function getActivityByParameters() {
  
 }
 
+function addClassBySelectedType() {
+    let selectedType = typesInputElement.value
+    // console.log(selectedType)
+    // if (selectedType.classList.contains('education')) {
+    //      selectedType.classList.remove('education')
+    // }
+    
+     activityWrapper.classList.remove('education', 'recreational', 'social', 'diy', 'charity', 'cooking', 'relaxation', 'music', 'busywork')
 
+    if (selectedType === 'education') {
+        activityWrapper.classList.add('education')
+    } else if (selectedType === 'recreational') {
+        activityWrapper.classList.add('recreational')
+    } else if (selectedType === 'social') {
+        activityWrapper.classList.add('social')
+    } else if (selectedType === 'diy') {
+        activityWrapper.classList.add('diy')
+    } else if (selectedType === 'charity') {
+        activityWrapper.classList.add('charity')
+    } else if (selectedType === 'cooking') {
+        activityWrapper.classList.add('cooking')
+    } else if (selectedType === 'relaxation') {
+        activityWrapper.classList.add('relaxation')
+    } else if (selectedType === 'music') {
+        activityWrapper.classList.add('music')
+    } else if (selectedType === 'busywork') {
+        activityWrapper.classList.add('busywork')
+    } 
+
+}
 
 function boredAPI() {
     listSelectionOptions(typesInputElement)
@@ -135,6 +166,7 @@ function boredAPI() {
     form.addEventListener('submit', async (event) => {
         event.preventDefault()
         await getActivityByParameters()
+        addClassBySelectedType()
     })
 
 }

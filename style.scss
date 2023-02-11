@@ -1,0 +1,177 @@
+@import './styles/variables';
+
+
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+
+
+body {
+    margin: 0;
+    padding: 0 20px;
+    cursor: url('./images//icons8-cursor-50.png'), auto;
+    background-color: rgb(247, 229, 191);
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    #bored-form {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        width: 100%;
+        padding: 20px 10px;
+    
+    
+    
+        .form-parameters {
+            display: flex;
+            justify-content: space-evenly;
+        
+            #categories {
+                width: 15%;
+                padding: 5px;
+                border-radius:50px 15px;
+                border-width: 5px;
+                text-align: center;
+                border-color: $color-button-border-dark;
+                border-top-color: $color-button-border-light;
+                border-left-color: $color-button-border-light;
+                background-color: $color-button-main;
+                color: $color-button-text;
+                cursor: url('./images/icons8-electrified-cursor-50.png'), auto;
+            }
+    
+    
+    
+            .range-wrapper {
+                display: flex;
+                flex-direction: column-reverse;
+                align-items: center;
+                width: 15%;
+    
+                input[type='range'] {
+                    overflow: hidden;
+                    width: 200px;
+                    appearance: none;
+                    cursor: url('./images/icons8-electrified-cursor-50.png'), auto;
+                    background-color: $color-button-border-light;
+                  }
+                  
+                  input[type='range']::-webkit-slider-runnable-track {
+                    height: 15px;
+                    appearance: none;
+                    color: #13bba4;
+                    cursor: url('./images/icons8-electrified-cursor-50.png'), auto;
+                    // margin-top: -1px;
+                  }
+                  
+                  input[type='range']::-webkit-slider-thumb {
+                    width: 15px;
+                    appearance: none;
+                    height: 15px;
+                    cursor: url('./images/icons8-electrified-cursor-50.png'), auto;
+                    background-color: #000000;
+                    box-shadow: -200px 0 0 200px $color-button-main;
+                  }
+            }
+        }
+    
+    
+        .submit-button {
+            padding: 10px;
+            border-radius: 50px 15px;
+            border-width: 5px;
+            border-color: $color-button-border-light;
+            background-color: $color-button-main;
+            color: $color-button-text;
+            font-size: 13px;
+            letter-spacing: 0.04em;
+            cursor: url('./images/icons8-electrified-cursor-50.png'), auto;
+        }
+    
+    }
+    
+    .activity-wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 100px;
+        
+        .activity-info-wrapper {
+            
+            width: 40%;
+            height: 500px;
+            margin: 0;
+            border-width: 20px;
+            border-style: outset;
+            border-color: $color-button-border-light;
+            padding: 50px;
+            background-color: rgb(247, 229, 191, 0.6);
+        }
+    }
+
+
+
+
+
+}
+
+.education {
+    background-image: url('./images/joanna-kosinska-RE-8WswW95o-unsplash.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.recreational {
+    background-image: url('./images/maksim-chernishev-oLuRFg0iJuk-unsplash.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.social {
+    background-image: url('./images/helena-lopes-e3OUQGT9bWU-unsplash.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.diy {
+    background-image: url('./images/jo-szczepanska-9OKGEVJiTKk-unsplash.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.charity {
+    background-image: url('./images/marcos-paulo-prado-83JZupwXfhU-unsplash.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.cooking {
+    background-image: url('./images/calum-lewis-rkT_TG5NKF8-unsplash.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.relaxation {
+    background-image: url('./images/alejandro-pinero-amerio-KBn4-lyqRgQ-unsplash.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.music {
+    background-image: url('./images/wes-hicks-MEL-jJnm7RQ-unsplash.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.busywork {
+    background-image: url('./images/marvin-meyer-SYTO3xs06fU-unsplash.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}

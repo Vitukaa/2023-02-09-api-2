@@ -1,0 +1,31 @@
+body {
+    cursor: url('./images//icons8-cursor-50.png'), auto;
+
+}
+
+#bored-form {
+    padding: 20px 10px;
+    background-color: rgb(172, 249, 255);
+}
+
+#categories {
+    padding: 5px;
+    border-radius: 15px;
+    border-width: 5px;
+    border-color:blueviolet;
+    background-color: rgb(116, 116, 241);
+    color: rgb(255, 251, 239);;
+}
+
+
+.submit-button {
+    padding: 10px;
+    border-radius: 50px 15px;
+    border-width: 5px;
+    border-color: blueviolet;
+    background-color: rgb(116, 116, 241);
+    color: rgb(255, 251, 239);
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    cursor: url('./images/icons8-electrified-cursor-50.png'), auto;
+}

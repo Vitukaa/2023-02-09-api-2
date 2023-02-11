@@ -1,31 +1,152 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 body {
-    cursor: url('./images//icons8-cursor-50.png'), auto;
-
+  margin: 0;
+  padding: 0 20px;
+  cursor: url("./images//icons8-cursor-50.png"), auto;
+  background-color: rgb(247, 229, 191);
 }
 
-#bored-form {
-    padding: 20px 10px;
-    background-color: rgb(172, 249, 255);
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.wrapper #bored-form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+  padding: 20px 10px;
+}
+.wrapper #bored-form .form-parameters {
+  display: flex;
+  justify-content: space-evenly;
+}
+.wrapper #bored-form .form-parameters #categories {
+  width: 15%;
+  padding: 5px;
+  border-radius: 50px 15px;
+  border-width: 5px;
+  text-align: center;
+  border-color: rgb(66, 18, 110);
+  border-top-color: blueviolet;
+  border-left-color: blueviolet;
+  background-color: rgb(116, 116, 241);
+  color: rgb(255, 251, 239);
+  cursor: url("./images/icons8-electrified-cursor-50.png"), auto;
+}
+.wrapper #bored-form .form-parameters .range-wrapper {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  width: 15%;
+}
+.wrapper #bored-form .form-parameters .range-wrapper input[type=range] {
+  overflow: hidden;
+  width: 200px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  cursor: url("./images/icons8-electrified-cursor-50.png"), auto;
+  background-color: blueviolet;
+}
+.wrapper #bored-form .form-parameters .range-wrapper input[type=range]::-webkit-slider-runnable-track {
+  height: 15px;
+  -webkit-appearance: none;
+          appearance: none;
+  color: #13bba4;
+  cursor: url("./images/icons8-electrified-cursor-50.png"), auto;
+}
+.wrapper #bored-form .form-parameters .range-wrapper input[type=range]::-webkit-slider-thumb {
+  width: 15px;
+  -webkit-appearance: none;
+          appearance: none;
+  height: 15px;
+  cursor: url("./images/icons8-electrified-cursor-50.png"), auto;
+  background-color: #000000;
+  box-shadow: -200px 0 0 200px rgb(116, 116, 241);
+}
+.wrapper #bored-form .submit-button {
+  padding: 10px;
+  border-radius: 50px 15px;
+  border-width: 5px;
+  border-color: blueviolet;
+  background-color: rgb(116, 116, 241);
+  color: rgb(255, 251, 239);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  cursor: url("./images/icons8-electrified-cursor-50.png"), auto;
+}
+.wrapper .activity-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 100px;
+}
+.wrapper .activity-wrapper .activity-info-wrapper {
+  width: 40%;
+  height: 500px;
+  margin: 0;
+  border-width: 20px;
+  border-style: outset;
+  border-color: blueviolet;
+  padding: 50px;
+  background-color: rgba(247, 229, 191, 0.6);
 }
 
-#categories {
-    padding: 5px;
-    border-radius: 15px;
-    border-width: 5px;
-    border-color:blueviolet;
-    background-color: rgb(116, 116, 241);
-    color: rgb(255, 251, 239);;
+.education {
+  background-image: url("./images/joanna-kosinska-RE-8WswW95o-unsplash.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-
-.submit-button {
-    padding: 10px;
-    border-radius: 50px 15px;
-    border-width: 5px;
-    border-color: blueviolet;
-    background-color: rgb(116, 116, 241);
-    color: rgb(255, 251, 239);
-    font-size: 13px;
-    letter-spacing: 0.04em;
-    cursor: url('./images/icons8-electrified-cursor-50.png'), auto;
+.recreational {
+  background-image: url("./images/maksim-chernishev-oLuRFg0iJuk-unsplash.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
+
+.social {
+  background-image: url("./images/helena-lopes-e3OUQGT9bWU-unsplash.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.diy {
+  background-image: url("./images/jo-szczepanska-9OKGEVJiTKk-unsplash.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.charity {
+  background-image: url("./images/marcos-paulo-prado-83JZupwXfhU-unsplash.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.cooking {
+  background-image: url("./images/calum-lewis-rkT_TG5NKF8-unsplash.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.relaxation {
+  background-image: url("./images/alejandro-pinero-amerio-KBn4-lyqRgQ-unsplash.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.music {
+  background-image: url("./images/wes-hicks-MEL-jJnm7RQ-unsplash.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.busywork {
+  background-image: url("./images/marvin-meyer-SYTO3xs06fU-unsplash.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}/*# sourceMappingURL=style.css.map */
