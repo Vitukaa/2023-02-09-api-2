@@ -61,10 +61,12 @@ body {
                     appearance: none;
                     cursor: url('./images/icons8-electrified-cursor-50.png'), auto;
                     background-color: $color-button-border-light;
+                    border-radius: 15px;
                   }
                   
                   input[type='range']::-webkit-slider-runnable-track {
-                    height: 15px;
+                    height: 20px;
+                    border-radius: 15px;
                     appearance: none;
                     color: #13bba4;
                     cursor: url('./images/icons8-electrified-cursor-50.png'), auto;
@@ -72,12 +74,13 @@ body {
                   }
                   
                   input[type='range']::-webkit-slider-thumb {
-                    width: 15px;
+                    width: 20px;
+                    border-radius: 15px;
                     appearance: none;
-                    height: 15px;
+                    height: 20px;
                     cursor: url('./images/icons8-electrified-cursor-50.png'), auto;
                     background-color: #000000;
-                    box-shadow: -200px 0 0 200px $color-button-main;
+                    box-shadow: -200px 0px 0px 200px $color-button-main;
                   }
             }
         }

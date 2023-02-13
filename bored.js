@@ -108,11 +108,11 @@ async function getActivityByParameters() {
     
     if (!data.hasOwnProperty('error')) {
         
+        let type = data.type[0].toUpperCase() + data.type.slice(1)
         let price = data.price * 10
         let accessibility = data.accessibility * 10
 
-
-        activityType.textContent = `Type: ${data.type}`
+        activityType.textContent = `Type: ${type}`
         activityDescription.textContent = `Activity: ${data.activity}`
         activityPrice.textContent = `Price (0-10): ${price}`
         activityParticipants.textContent = `Participants: ${data.participants}`
